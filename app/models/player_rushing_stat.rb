@@ -6,7 +6,7 @@ class PlayerRushingStat < ApplicationRecord
 
     rushings.each do |rushing|
       longest_rush = rushing['Lng'].to_i
-      longest_rush_with_touchdown = rushing['Lng'].index('T').present?
+      longest_rush_with_touchdown = rushing['Lng'].class == String ? rushing['Lng'].index('T').present? : false
 
       total_rushing_yards = rushing['Yds'].class == String ? rushing['Yds'].gsub(',', '') : rushing['Yds']
 

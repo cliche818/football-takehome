@@ -54,4 +54,6 @@ We will evaluate you on your ability to solve the problem defined in the require
 If you have any questions regarding requirements, do not hesitate to email your contact at theScore for clarification.
 
 ### Installation and running this solution
-... TODO
+
+in `rails c` run `PlayerRushingStat.import_json(Rails.root.to_s + '/rushing.json')`
+check `PlayerRushingStat.count`, there should be 326 records if using the provided rushing.json
