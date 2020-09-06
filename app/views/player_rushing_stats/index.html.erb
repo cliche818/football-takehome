@@ -1,9 +1,15 @@
 <h1>Player Rushing Stats</h1>
 
+<%= form_tag root_path, method: :get do %>
+  <%= text_field_tag :player_name, params[:player_name] %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
 <table>
   <tr>
     <th><%= "player_name" %></th>
     <th><%= "player_team" %></th>
+    <th><%= "player_position" %></th>
     <th><%= "rushing_attempts_per_game_avg"%></th>
     <th><%= "rushing_attempts"%></th>
     <th><%= "total_rushing_yards"%></th>
@@ -22,6 +28,7 @@
       <tr>
         <td><%= player_rushing_stat.player_name %></td>
         <td><%= player_rushing_stat.player_team %></td>
+        <td><%= player_rushing_stat.player_position %></td>
         <td><%= player_rushing_stat.rushing_attempts_per_game_avg %></td>
         <td><%= player_rushing_stat.rushing_attempts %></td>
         <td><%= player_rushing_stat.total_rushing_yards %></td>

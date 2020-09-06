@@ -1,5 +1,9 @@
 class PlayerRushingStatsController < ApplicationController
   def index
-    @player_rushing_stats = PlayerRushingStat.all
+    if params[:player_name].present?
+      @player_rushing_stats = PlayerRushingStat.where('player_name like ?', "%#{params[:player_name]}%")
+    else
+      @player_rushing_stats = PlayerRushingStat.all
+    end
   end
 end
