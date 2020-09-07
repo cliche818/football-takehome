@@ -5,24 +5,24 @@
   <%= submit_tag 'Search' %>
 <% end %>
 
-<table>
+<table id="player-stats-table">
   <tr>
-    <th><%= "player_name" %></th>
-    <th><%= "player_team" %></th>
-    <th><%= "player_position" %></th>
-    <th><%= "rushing_attempts_per_game_avg"%></th>
-    <th><%= "rushing_attempts"%></th>
-    <th><%= "total_rushing_yards"%></th>
-    <th><%= "rushing_average_yards_per_attempt"%></th>
-    <th><%= "rushing_yards_per_game"%></th>
-    <th><%= "total_rushing_touchdowns"%></th>
-    <th><%= "longest_rush"%></th>
-    <th><%= "longest_rush_with_touchdown"%></th>
-    <th><%= "rushing_first_downs"%></th>
-    <th><%= "rushing_first_down_percentage"%></th>
-    <th><%= "rushing_twenty_plus_yards"%></th>
-    <th><%= "rushing_forty_plus_yards"%></th>
-    <th><%= "rushing_fumbles"%></th>
+    <th><%= 'player_name' %></th>
+    <th><%= 'player_team' %></th>
+    <th><%= 'player_position' %></th>
+    <th><%= 'rushing_attempts_per_game_avg' %></th>
+    <th><%= 'rushing_attempts' %></th>
+    <th><%= sortable 'total_rushing_yards', 'Total Rushing Yards' %></th>
+    <th><%= 'rushing_average_yards_per_attempt' %></th>
+    <th><%= 'rushing_yards_per_game' %></th>
+    <th><%= 'total_rushing_touchdowns' %></th>
+    <th><%= 'longest_rush' %></th>
+    <th><%= 'longest_rush_with_touchdown' %></th>
+    <th><%= 'rushing_first_downs' %></th>
+    <th><%= 'rushing_first_down_percentage' %></th>
+    <th><%= 'rushing_twenty_plus_yards' %></th>
+    <th><%= 'rushing_forty_plus_yards' %></th>
+    <th><%= 'rushing_fumbles' %></th>
   </tr>
   <% for player_rushing_stat in @player_rushing_stats %>
       <tr>

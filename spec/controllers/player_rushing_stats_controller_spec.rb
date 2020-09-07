@@ -13,6 +13,43 @@ RSpec.describe PlayerRushingStatsController, type: :controller do
       expect(player_rushing_stats.first.player_name).to eq('ABCD DEFG')
       expect(response).to render_template('index')
     end
-  end
 
+    describe 'sorting' do
+      it 'should return a list of players order by the column and sort order' do
+        create(:player_rushing_stat, total_rushing_yards: 7, player_name: 'second')
+        create(:player_rushing_stat, total_rushing_yards: 10, player_name: 'first')
+
+        get :index, params: { sort_column: 'total_rushing_yards', sort_order: 'desc' }
+
+        player_rushing_stats = assigns(:player_rushing_stats)
+        expect(player_rushing_stats.count).to eq(2)
+        expect(player_rushing_stats.first.player_name).to eq('first')
+        expect(player_rushing_stats.last.player_name).to eq('second')
+      end
+
+      it 'should not set the order if the sort order is not valid' do
+        create(:player_rushing_stat, player_name: 'first')
+        create(:player_rushing_stat, player_name: 'second')
+
+        get :index, params: { sort_column: 'total_rushing_yards', sort_order: 'not_valid' }
+
+        player_rushing_stats = assigns(:player_rushing_stats)
+        expect(player_rushing_stats.count).to eq(2)
+        expect(player_rushing_stats.first.player_name).to eq('first')
+        expect(player_rushing_stats.last.player_name).to eq('second')
+      end
+
+      it 'should not set the order if the sort column is not valid' do
+        create(:player_rushing_stat, player_name: 'first')
+        create(:player_rushing_stat, player_name: 'second')
+
+        get :index, params: { sort_column: 'not_valid', sort_order: 'asc' }
+
+        player_rushing_stats = assigns(:player_rushing_stats)
+        expect(player_rushing_stats.count).to eq(2)
+        expect(player_rushing_stats.first.player_name).to eq('first')
+        expect(player_rushing_stats.last.player_name).to eq('second')
+      end
+    end
+  end
 end

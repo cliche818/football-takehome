@@ -1,3 +1,12 @@
 // Place all the styles related to the PlayerRushingStats controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+#player-stats-table {
+  border-collapse: collapse;
+}
+
+#player-stats-table td, #player-stats-table th {
+  padding: 4px 10px;
+  border: solid 1px #AAA;
+}
