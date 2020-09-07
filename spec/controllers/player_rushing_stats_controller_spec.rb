@@ -14,6 +14,11 @@ RSpec.describe PlayerRushingStatsController, type: :controller do
       expect(response).to render_template('index')
     end
 
+    it 'should respond to csv format' do
+      get :index, params: { format: 'csv' }
+      expect(response.header['Content-Type']).to include 'text/csv'
+    end
+
     describe 'sorting' do
       it 'should return a list of players order by the column and sort order' do
         create(:player_rushing_stat, total_rushing_yards: 7, player_name: 'second')

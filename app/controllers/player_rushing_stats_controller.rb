@@ -11,6 +11,13 @@ class PlayerRushingStatsController < ApplicationController
     if sort_column.present? && sort_order.present?
       @player_rushing_stats = @player_rushing_stats.order("#{sort_column} #{sort_order}")
     end
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data PlayerRushingStat.to_csv(@player_rushing_stats),
+                             filename: 'player_rushing_stats.csv'
+      }
+    end
   end
 
   private

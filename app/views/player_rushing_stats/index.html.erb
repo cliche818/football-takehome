@@ -1,9 +1,16 @@
 <h1>Player Rushing Stats</h1>
 
-<%= form_tag root_path, method: :get do %>
+<%= form_tag player_rushing_stats_path, method: :get do %>
   <%= text_field_tag :player_name, params[:player_name] %>
   <%= submit_tag 'Search' %>
 <% end %>
+
+<br>
+
+<%= link_to 'Download CSV', player_rushing_stats_path(params.merge(format: 'csv').permit(:player_name, :sort_column, :sort_order, :format)) %>
+
+<br>
+<br>
 
 <table id="player-stats-table">
   <tr>
