@@ -10,3 +10,17 @@
   padding: 4px 10px;
   border: solid 1px #AAA;
 }
+
+#player-stats-table th .sorted {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+#player-stats-table th .asc {
+  background-image: url(/images/up_arrow.gif);
+}
+
+#player-stats-table th .desc {
+  background-image: url(/images/down_arrow.gif);
+}
