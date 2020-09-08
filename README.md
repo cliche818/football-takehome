@@ -55,5 +55,24 @@ If you have any questions regarding requirements, do not hesitate to email your 
 
 ### Installation and running this solution
 
-in `rails c` run `PlayerRushingStat.import_json(Rails.root.to_s + '/rushing.json')`
+requires ruby version 2.7.1
+
+1) git clone git@github.com:cliche818/nfl-rushing.git
+in the directory
+2) bundle install
+3) yarn install --check-files
+4) rake db:setup
+5) in `rails c` run `PlayerRushingStat.import_json(Rails.root.to_s + '/rushing.json')`
 check `PlayerRushingStat.count`, there should be 326 records if using the provided rushing.json
+This is to populate the sqlite db with stats from rushing.json
+6) rails s
+7) go to http://localhost:3000/player_rushing_stats
+
+side things:
+- run `rspec` to run unit tests
+
+### Design decisions
+- imported rushing.json to handle certain fields that is sometimes a string (like "1,631" represents 1631) or has
+two values like in Lng (Longest Rush) which as an integer and a touchdown boolean field
+- use sqlite (relational database), to handle to filtering and sorting
+- added paging (will_paginate gem) to handle if the number of records go to order of 10k for displaying the table, but the csv download will not use paging
