@@ -13,7 +13,7 @@ class PlayerRushingStatsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html
+      format.html { @player_rushing_stats =  @player_rushing_stats.paginate(page: params[:page], per_page: 30) }
       format.csv { send_data PlayerRushingStat.to_csv(@player_rushing_stats),
                              filename: 'player_rushing_stats.csv'
       }
