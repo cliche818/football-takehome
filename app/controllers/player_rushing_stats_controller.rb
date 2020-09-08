@@ -27,6 +27,6 @@ class PlayerRushingStatsController < ApplicationController
   end
 
   def sort_column
-    PlayerRushingStat.column_names.include?(params[:sort_column]) ? params[:sort_column] : nil
+    %w[total_rushing_yards total_rushing_touchdowns longest_rush].include?(params[:sort_column]) ? params[:sort_column] : nil
   end
 end
