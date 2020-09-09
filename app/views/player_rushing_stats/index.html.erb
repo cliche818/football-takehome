@@ -2,7 +2,7 @@
 
 <%= form_tag player_rushing_stats_path, method: :get do %>
   <%= text_field_tag :player_name, params[:player_name] %>
-  <%= submit_tag 'Search' %>
+  <%= submit_tag 'Search', name: nil %>
 <% end %>
 
 <br>
