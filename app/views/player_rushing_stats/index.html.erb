@@ -14,36 +14,34 @@
 
 <table id="player-stats-table">
   <tr>
-    <th><%= 'player_name' %></th>
-    <th><%= 'player_team' %></th>
-    <th><%= 'player_position' %></th>
-    <th><%= 'rushing_attempts_per_game_avg' %></th>
-    <th><%= 'rushing_attempts' %></th>
-    <th><%= sortable 'total_rushing_yards', 'Total Rushing Yards' %></th>
-    <th><%= 'rushing_average_yards_per_attempt' %></th>
-    <th><%= 'rushing_yards_per_game' %></th>
-    <th><%= sortable 'total_rushing_touchdowns', 'Total Rushing Touchdowns' %></th>
-    <th><%= sortable 'longest_rush', 'Longest Rush' %></th>
-    <th><%= 'longest_rush_with_touchdown' %></th>
-    <th><%= 'rushing_first_downs' %></th>
-    <th><%= 'rushing_first_down_percentage' %></th>
-    <th><%= 'rushing_twenty_plus_yards' %></th>
-    <th><%= 'rushing_forty_plus_yards' %></th>
-    <th><%= 'rushing_fumbles' %></th>
+    <th><%= 'Player' %></th>
+    <th><%= 'Team' %></th>
+    <th><%= 'Pos' %></th>
+    <th><%= 'Att' %></th>
+    <th><%= 'Att/G' %></th>
+    <th><%= sortable 'total_rushing_yards', 'Yds' %></th>
+    <th><%= 'Avg' %></th>
+    <th><%= 'Yds/G' %></th>
+    <th><%= sortable 'total_rushing_touchdowns', 'TD' %></th>
+    <th><%= sortable 'longest_rush', 'Lng' %></th>
+    <th><%= '1st' %></th>
+    <th><%= '1st%' %></th>
+    <th><%= '20+' %></th>
+    <th><%= '40+' %></th>
+    <th><%= 'FUM' %></th>
   </tr>
   <% for player_rushing_stat in @player_rushing_stats %>
       <tr>
         <td><%= player_rushing_stat.player_name %></td>
         <td><%= player_rushing_stat.player_team %></td>
         <td><%= player_rushing_stat.player_position %></td>
-        <td><%= player_rushing_stat.rushing_attempts_per_game_avg %></td>
         <td><%= player_rushing_stat.rushing_attempts %></td>
+        <td><%= player_rushing_stat.rushing_attempts_per_game_avg %></td>
         <td><%= player_rushing_stat.total_rushing_yards %></td>
         <td><%= player_rushing_stat.rushing_average_yards_per_attempt %></td>
         <td><%= player_rushing_stat.rushing_yards_per_game %></td>
         <td><%= player_rushing_stat.total_rushing_touchdowns %></td>
-        <td><%= player_rushing_stat.longest_rush %></td>
-        <td><%= player_rushing_stat.longest_rush_with_touchdown %></td>
+        <td><%= "#{player_rushing_stat.longest_rush}#{player_rushing_stat.longest_rush_with_touchdown ? 'T' : ''}" %></td>
         <td><%= player_rushing_stat.rushing_first_downs %></td>
         <td><%= player_rushing_stat.rushing_first_down_percentage %></td>
         <td><%= player_rushing_stat.rushing_twenty_plus_yards %></td>
