@@ -67,6 +67,8 @@ check `PlayerRushingStat.count`, there should be 326 records if using the provid
 This is to populate the sqlite db with stats from rushing.json
 6) rails s
 7) go to http://localhost:3000/player_rushing_stats
+8) Use the searchbox to filter by player name + Yds/Td/Lng header names can be clicked to sort by asc or desc order +
+`Download CSV` button for downloading whatever player stats are currently displayed
 
 side things:
 - run `rspec` to run unit tests
