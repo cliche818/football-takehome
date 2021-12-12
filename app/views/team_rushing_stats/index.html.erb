@@ -1,0 +1,15 @@
+<h1>Team Rushing Stats</h1>
+
+<table id="team-stats-table">
+  <tr>
+    <th><%= 'Team' %></th>
+    <th><%= 'Att' %></th>
+
+  </tr>
+  <% for team_rushing_stat in @team_rushing_stats %>
+      <tr>
+        <td><%= team_rushing_stat.player_team %></td>
+        <td><%= team_rushing_stat.rushing_attempts %></td>
+      </tr>
+  <% end %>
+</table>

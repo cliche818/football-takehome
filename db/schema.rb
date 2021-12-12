@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_05_190812) do
+ActiveRecord::Schema.define(version: 2020_09_28_181323) do
 
   create_table "player_rushing_stats", force: :cascade do |t|
     t.string "player_name"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 2020_09_05_190812) do
     t.index ["longest_rush"], name: "index_player_rushing_stats_on_longest_rush"
     t.index ["total_rushing_touchdowns"], name: "index_player_rushing_stats_on_total_rushing_touchdowns"
     t.index ["total_rushing_yards"], name: "index_player_rushing_stats_on_total_rushing_yards"
+  end
+
+  create_table "team_rushing_stats", force: :cascade do |t|
+    t.string "player_team"
+    t.integer "rushing_attempts"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

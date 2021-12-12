@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :player_rushing_stat do
+    factory :player_rushing_stat do
     player_name { 'Mark Ingram' }
     player_team { 'NO' }
     player_position { 'RB' }
