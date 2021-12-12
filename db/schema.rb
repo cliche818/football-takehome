@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_181323) do
+ActiveRecord::Schema.define(version: 2021_12_12_194945) do
 
   create_table "player_rushing_stats", force: :cascade do |t|
     t.string "player_name"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2020_09_28_181323) do
     t.integer "rushing_attempts"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "max_lng"
   end
 
 end

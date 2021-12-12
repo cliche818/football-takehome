@@ -3,13 +3,15 @@
 <table id="team-stats-table">
   <tr>
     <th><%= 'Team' %></th>
-    <th><%= 'Att' %></th>
+    <th><%= 'Total Rushing Attempts (Att)' %></th>
+    <th><%= 'Max Longest Rush Yards (Lng)' %></th>
 
   </tr>
   <% for team_rushing_stat in @team_rushing_stats %>
       <tr>
         <td><%= team_rushing_stat.player_team %></td>
         <td><%= team_rushing_stat.rushing_attempts %></td>
+        <td><%= team_rushing_stat.max_lng %></td>
       </tr>
   <% end %>
 </table>
